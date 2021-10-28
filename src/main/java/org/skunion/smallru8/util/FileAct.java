@@ -32,11 +32,11 @@ public class FileAct {
 	}
 	
 	/**
-	* @param oldpath 要複製的資料夾
-	* @param newpath 複製到新的路徑
+	* @param oldpath Directory you want to copy
+	* @param newpath Dst path
 	*/
 	public static void copy(File oldpath,File newpath){
-		if(oldpath.isDirectory()){//複製資料夾
+		if(oldpath.isDirectory()){//Copy folder
 			newpath.mkdir();
 			File[] oldList = oldpath.listFiles();
 			if(oldList!=null){
@@ -44,7 +44,7 @@ public class FileAct {
 					copy(file, new File(newpath,file.getName()));
 				}
 			}
-		}else if(oldpath.isFile()){//複製檔案
+		}else if(oldpath.isFile()){//Copy file
 			File f=new File(newpath.getAbsolutePath());
 			try {
 				f.createNewFile();
@@ -56,8 +56,8 @@ public class FileAct {
 	}
 	
 	/**
-	* @param filepath 要複製的檔案
-	* @param path  複製到哪去
+	* @param filepath File you want to copy
+	* @param path Dst path
 	*/
 	public static void copyFile(File filepath,String path){
 		try {
